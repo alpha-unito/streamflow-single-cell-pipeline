@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  cellranger:
+    image: gitlab.c3s.unito.it:5000/alpha/single-cell-pipeline:cellranger
+    stdin_open: true
+  r-environment:
+    image: gitlab.c3s.unito.it:5000/alpha/single-cell-pipeline:r-environment
+    stdin_open: true
+    entrypoint: []

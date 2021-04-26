@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#SBATCH --job-name="single-cell-pipeline"
+#SBATCH -D {{ streamflow_workdir }}
+#SBATCH --ntasks=1
+#SBATCH --ntasks-per-node=1
+
+# Load modules
+module load singularity
+
+singularity exec /path/to/cellranger.sif {{ streamflow_command }}

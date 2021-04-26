@@ -1,0 +1,24 @@
+cellranger:
+  image: alpha/single-cell-pipeline:cellranger
+  command: ["tail", "-f", "/dev/null"]
+  nodes:
+    - node25
+    - node26
+    - node27
+    - node28
+    - node29
+    - node30
+  volumes:
+    - /scratch/home/icolonne/single-cell-pipeline:/tmp/streamflow
+#r-environment:
+#  image: alpha/single-cell-pipeline:r-environment
+#  command: ["tail", "-f", "/dev/null"]
+#  nodes:
+#    - node25
+#    - node26
+#    - node27
+#    - node28
+#    - node29
+#    - node30
+#  volumes:
+#    - /scratch/home/icolonne/single-cell-pipeline:/tmp/streamflow

@@ -1,0 +1,13 @@
+# Jet Brains
+.idea/
+
+# CellRanger files
+docker/cellranger/cellranger-*
+docker/cellranger/bcl2fastq2-*
+
+#Input data
+input/
+refdata-cellranger-GRCh38-3.0.0/
+
+# Singularity
+*.sif

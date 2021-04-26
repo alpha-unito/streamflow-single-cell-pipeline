@@ -1,0 +1,29 @@
+# Default values for single-cell.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 6
+
+#cellranger:
+#  image: gitlab.c3s.unito.it:5000/alpha/single-cell-pipeline:cellranger
+#  pullPolicy: Always
+#  stdin: true
+#  resources: {}
+#  persistence:
+#    accessMode: ReadWriteOnce
+#    capacity: 100Gi
+renvironment:
+  image: gitlab.c3s.unito.it:5000/alpha/single-cell-pipeline:r-environment
+  pullPolicy: Always
+  stdin: true
+  resources: {}
+
+imagePullSecrets:
+  - name: gitlab-c3s-unito-registry
+
+nameOverride: ""
+fullnameOverride: ""
+
+nodeSelector: {}
+
+tolerations: []

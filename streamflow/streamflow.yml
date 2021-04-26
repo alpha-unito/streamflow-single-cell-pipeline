@@ -1,0 +1,55 @@
+#!/usr/bin/env streamflow
+version: v1.0
+workflows:
+  create-and-cat:
+    type: cwl
+    config:
+      file: cwl/main.cwl
+      settings: cwl/config.yml
+    models:
+      - step: /mkfastq
+        target:
+          model: occam-single-cell
+          service: cellranger
+          workdir: /path/to/shared/folder
+      - step: /subworkflow/count
+        target:
+          model: occam-single-cell
+          service: cellranger
+          workdir: /path/to/shared/folder
+      - step: /subworkflow/seurat
+        target:
+          model: helm-single-cell
+          service: r-environment
+      - step: /subworkflow/singler
+        target:
+          model: helm-single-cell
+          service: r-environment
+models:
+  docker-compose-single-cell:
+    type: docker-compose
+    config:
+      files:
+        - environment/docker-compose/docker-compose.yml
+  helm-single-cell:
+    type: helm
+    external: true
+    config:
+      chart: environment/helm/single-cell
+      namespace: single-cell-pipeline
+      releaseName: sc-pipeline
+  occam-single-cell:
+    type: occam
+    config:
+      file: environment/occam/occamfile.yml
+      sshKey: /path/to/ssh/key
+      username: username
+  slurm-single-cell:
+    type: slurm
+    config:
+      file: environment/slurm/slurm_template.jinja2
+      hostname: hostname
+      maxConcurrentJobs: 6
+      sshKey: /path/to/ssh/key
+      username: username
+  

@@ -1,0 +1,22 @@
+cc_rds:
+  class: File
+  path: data/regev_lab_cell_cycle_human.rds
+genome:
+  class: Directory
+  path: data/refdata-cellranger-GRCh38-3.0.0
+inp_dir:
+  class: Directory
+  path:  data/input
+max_pc_mito: 10
+max_feature: 15000
+min_feature: 200
+mito_prefix: ^MT-
+num_pc: 50
+organism: Human
+res_dir:
+  class: Directory
+  path:  /archive/home/icolonne/single-cell-pipeline/results
+samplesheet:
+  class: File
+  path:  /archive/home/icolonne/single-cell-pipeline/SampleSheet.csv
+singler_threads: 24

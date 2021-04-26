@@ -1,0 +1,2 @@
+Bootstrap: docker-daemon
+From: gitlab.c3s.unito.it:5000/alpha/single-cell-pipeline:cellranger
